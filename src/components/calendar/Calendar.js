@@ -33,7 +33,7 @@ import { LockIcon } from "@/components/icons/LockIcon.jsx";
 import FullCalendar from "@fullcalendar/react";
 import daygridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
-import { useState } from "react";
+import { useReducer, useState, useRef } from "react";
 import { v4 as uuid } from "uuid";
 
 const EventItem = ({ info }) => {
@@ -44,9 +44,28 @@ const EventItem = ({ info }) => {
 		</div>
 	);
 };
+
+const ACTIONS = {
+	INCREMENT: "increment",
+	DECREMENT: "decrement",
+};
+
+// function reducer(state, action) {
+// 	switch (action.type) {
+// 		case ACTIONS.INCREMENT:
+// 			return { count: state.increment + 1 };
+// 		case ACTIONS.DECREMENT:
+// 			return { count: state.decrement - 1 };
+// 		default:
+// 			return state;
+// 	}
+// }
+
 const Calendar = () => {
+	// const inputRef = useRef();
+	// const [state, dispatch] = useReducer(reducer, { select });
 	const [events, setEvents] = useState([]);
-	const [eventInfo, setEventInfo] = useState([]);
+	// const [eventInfo, setEventInfo] = useState([]);
 	// state for Shadcn UI Dialog
 	// const [showModal, setShowModal] = useState(false);
 
@@ -56,29 +75,42 @@ const Calendar = () => {
 	// state for NextUI Input
 	const [value, setValue] = useState("");
 
+	// useEffect(() => {
+	// 	if(inputRef.currentValue !== undefined) {
+	// 		inputRef.current = info;
+	// 	}
+	// 	const handleAction();
+	// }, )
+
 	const handleSelect = (info) => {
 		// console.log(info);
 		onOpen();
+		// console.log(info);
+		// console.log(inputRef.current);
+		// inputRef.current = info;
 
+		// console.log(inputRef.current);
+		// dispatch({ type: "select" });
 		// const { start, end } = eventInfo;
 		// const end = handleAction(info);
 		// setEventInfo([...info, { start: start, end: end }]);
 		// handleAction(info);
 	};
 
-	const handleAction = (info) => {
+	const handleAction = () => {
 		// const handlePrompt = prompt("Enter your event");
 		// const modalInput = setValue;
 		// setEventInfo(info);
 		// console.log(test);
-
-		const { start, end } = info;
+		const c = inputRef.current;
+		console.log(inputRef);
+		// const { start, end } = info;
 		setEvents([
 			...events,
 			{
-				start,
-				end,
-				title: info.title,
+				// start,
+				// end,
+				title: c,
 				id: uuid(),
 			},
 		]);
@@ -132,6 +164,7 @@ const Calendar = () => {
 									label="Event"
 									value={value}
 									onValueChange={setValue}
+									ref={inputRef}
 								/>
 								{/* <Input
 									autoFocus
@@ -176,6 +209,7 @@ const Calendar = () => {
 									// onSubmit={handleAction()}
 									onPress={onClose}
 									// onPressEnd={handleAction(eventInfo)}
+									onPressEnd={handleAction}
 								>
 									Action
 								</Button>

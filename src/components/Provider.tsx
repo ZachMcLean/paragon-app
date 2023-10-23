@@ -14,7 +14,7 @@ interface ProviderProps {
 const Provider: FC<ProviderProps> = ({ children }) => {
 	return (
 		<NextUIProvider>
-			<SessionProvider>{children}</SessionProvider>;
+			<SessionProvider>{children}</SessionProvider>
 		</NextUIProvider>
 	);
 };

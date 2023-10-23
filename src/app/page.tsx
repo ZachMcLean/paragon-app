@@ -10,7 +10,8 @@ export default async function Home() {
 	const session = await getServerSession(authOptions);
 	return (
 		<div className="min-h-full py-4 px-4">
-			<Calendar />
+			<h1>Home</h1>
+			{/* <Calendar /> */}
 			{/* <h1 className="text-4xl">Home</h1> */}
 			{/* <Link className={buttonVariants()} href="/admin">
 				Open My Admin
