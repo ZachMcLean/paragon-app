@@ -45,10 +45,10 @@ const EventItem = ({ info }) => {
 	);
 };
 
-const ACTIONS = {
-	INCREMENT: "increment",
-	DECREMENT: "decrement",
-};
+// const ACTIONS = {
+// 	INCREMENT: "increment",
+// 	DECREMENT: "decrement",
+// };
 
 // function reducer(state, action) {
 // 	switch (action.type) {
@@ -65,6 +65,7 @@ const Calendar = () => {
 	// const inputRef = useRef();
 	// const [state, dispatch] = useReducer(reducer, { select });
 	const [events, setEvents] = useState([]);
+	const [eventInfo, setInfo] = useState([]);
 	// const [eventInfo, setEventInfo] = useState([]);
 	// state for Shadcn UI Dialog
 	// const [showModal, setShowModal] = useState(false);
@@ -84,6 +85,8 @@ const Calendar = () => {
 
 	const handleSelect = (info) => {
 		// console.log(info);
+		// const { start, end } =
+		setInfo(info);
 		onOpen();
 		// console.log(info);
 		// console.log(inputRef.current);
@@ -102,17 +105,19 @@ const Calendar = () => {
 		// const modalInput = setValue;
 		// setEventInfo(info);
 		// console.log(test);
-		const c = inputRef.current;
-		console.log(inputRef);
-		// const { start, end } = info;
+		// const c = inputRef.current;
+		// console.log(inputRef);
+		const { start, end } = eventInfo;
+		console.log(eventInfo);
 		setEvents([
 			...events,
 			{
-				// start,
-				// end,
-				title: c,
+				start: start,
+				end: end,
+				title: value,
 				id: uuid(),
 			},
+			// eventColor: '#378006'
 		]);
 	};
 
@@ -164,7 +169,7 @@ const Calendar = () => {
 									label="Event"
 									value={value}
 									onValueChange={setValue}
-									ref={inputRef}
+									// ref={inputRef}
 								/>
 								{/* <Input
 									autoFocus
