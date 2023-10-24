@@ -33,6 +33,7 @@ import { LockIcon } from "@/components/icons/LockIcon.jsx";
 import FullCalendar from "@fullcalendar/react";
 import daygridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
+import timeGridPlugin from "@fullcalendar/timegrid";
 import { useReducer, useState, useRef } from "react";
 import { v4 as uuid } from "uuid";
 
@@ -75,6 +76,7 @@ const Calendar = () => {
 
 	// state for NextUI Input
 	const [value, setValue] = useState("");
+	const calendarRef = useRef();
 
 	// useEffect(() => {
 	// 	if(inputRef.currentValue !== undefined) {
@@ -109,6 +111,9 @@ const Calendar = () => {
 		// console.log(inputRef);
 		const { start, end } = eventInfo;
 		console.log(eventInfo);
+
+		console.log(value);
+		console.log(calendarRef.current);
 		setEvents([
 			...events,
 			{
@@ -131,9 +136,13 @@ const Calendar = () => {
 	// };
 
 	return (
-		<div>
+		<div className="p-4 max-w-5xl my-10 mx-auto">
 			{/* <h1 className="text-right">Calendar</h1> */}
 			<FullCalendar
+				// className="max-w-5xl mx-10 my-auto"
+				ref={calendarRef}
+				nowIndicator={true}
+				// now={"2018-02-13T09:25:00"} // just for demo
 				editable
 				selectable={true}
 				events={events}
@@ -145,12 +154,18 @@ const Calendar = () => {
 				headerToolbar={{
 					center: "title",
 					start: "today prev next",
-					end: "dayGridMonth dayGridWeek dayGridDay",
+					end: "dayGridMonth,timeGridWeek,timeGridDay",
 				}}
 				eventContent={(info) => <EventItem info={info} />}
-				plugins={[daygridPlugin, interactionPlugin]}
-				views={["dayGridMonth", "dayGridWeek", "dayGridDay"]}
-				initialView="dayGridMonth"
+				plugins={[daygridPlugin, interactionPlugin, timeGridPlugin]}
+				views={[
+					"dayGridMonth",
+					"timeGridWeek",
+					"timeGridDay",
+					// "timeGridDay",
+					// "timeGridWeek",
+				]}
+				initialView="timeGridWeek"
 				timeZone="UTC"
 				// eventContent={renderEventContent}
 			/>
@@ -169,7 +184,7 @@ const Calendar = () => {
 									label="Event"
 									value={value}
 									onValueChange={setValue}
-									// ref={inputRef}
+									// ref={valueRef}
 								/>
 								{/* <Input
 									autoFocus

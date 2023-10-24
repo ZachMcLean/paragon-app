@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 				{ status: 409 }
 			);
 		}
-		// chekc if username already exists
+		// check if username already exists
 		const existingUserByUsername = await db.user.findUnique({
 			where: { username: username },
 		});
@@ -40,8 +40,10 @@ export async function POST(req: Request) {
 			);
 		}
 
+		// Encrypt password with hash function from BCRYPT
 		const hashedPassword = await hash(password, 10);
 
+		// Create New User
 		const newUser = await db.user.create({
 			data: {
 				username,
