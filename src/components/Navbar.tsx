@@ -29,17 +29,22 @@ const Navbar = async () => {
 		<nav className="bg-zinc-100 w-full">
 			<div className="px-8 py-2 flex items-center justify-between mx-auto border border-red-400">
 				{/* Logo */}
-				<div className="flex items-center">
-					<div>
-						<Eye />
-					</div>
-					<div className="p-2">
-						<h2>Paragon</h2>
-					</div>
+				<div>
+					<Link href="/">
+						<div className="flex items-center">
+							<Eye />
+							<h2>Paragon</h2>
+						</div>
+						<div className="p-2"></div>
+					</Link>
 				</div>
 
 				{/* primary nav (left) */}
 				<div>
+					<Link className={buttonVariants()} href={"/calendar"}>
+						Calendar
+					</Link>
+
 					{session?.user ? (
 						<UserAccountnav /> // sing out button
 					) : (
