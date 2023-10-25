@@ -32,8 +32,8 @@ const Navbar = async () => {
 				<div>
 					<Link href="/">
 						<div className="flex items-center">
-							<Eye />
-							<h2>Paragon</h2>
+							{/* <Eye /> */}
+							<h2 className="text-4xl font-sans">Paragon</h2>
 						</div>
 						<div className="p-2"></div>
 					</Link>

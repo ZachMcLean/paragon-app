@@ -16,6 +16,10 @@ module.exports = {
 			screens: {
 				"2xl": "1400px",
 			},
+			fontFamily: {
+				sans: ["JetBrainsMono", "sans-serif"],
+				// serif: ['Merriweather', 'serif'],
+			},
 		},
 		extend: {
 			colors: {
