@@ -10,7 +10,7 @@ import Main from "@/components/Main";
 export default async function Home() {
 	const session = await getServerSession(authOptions);
 	return (
-		<div className="min-h-full py-4 px-4">
+		<div className="min-h-full py-4 px-4 ">
 			<Main />
 			{/* <Calendar /> */}
 			{/* <h1 className="text-4xl">Home</h1> */}
