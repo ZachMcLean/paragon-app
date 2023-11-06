@@ -28,7 +28,7 @@
 		"**/*.tsx",
 		".next/types/**/*.ts",
 		"src/components/calendar/Calendar.js",
-		"src/components/Main.jsx"
+		"src/components/page-components/Main.jsx"
 	],
 	"exclude": ["node_modules"]
 }

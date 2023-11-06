@@ -1,10 +1,21 @@
 import Link from "next/link";
 import { Button, buttonVariants } from "./ui/button";
-import { Eye, Home } from "lucide-react";
+import {
+	Eye,
+	CalendarDays,
+	ScrollText,
+	Sunrise,
+	Sunset,
+	User,
+	LogIn,
+	LogOut,
+} from "lucide-react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { signOut } from "next-auth/react";
 import UserAccountnav from "./UserAccountnav";
+import Paragon from "../../public/svg/paragon.svg";
+import Image from "next/image";
 
 const Navbar = async () => {
 	const session = await getServerSession(authOptions);
@@ -30,12 +41,17 @@ const Navbar = async () => {
 			<div className="px-8 py-2 flex items-center justify-between mx-auto border border-red-400">
 				{/* Logo */}
 				<div>
-					<Link href="/">
+					<Link href="/" className="">
 						<div className="flex items-center">
 							{/* <Eye /> */}
-							<h2 className="text-4xl font-sans">Paragon</h2>
+							<Image
+								alt="The logo for the Paragon Calendar App"
+								src={Paragon}
+								quality={95}
+								className="w-16 h-16 object-cover"
+							/>
+							<h2 className="text-4xl">Paragon</h2>
 						</div>
-						<div className="p-2"></div>
 					</Link>
 				</div>
 
