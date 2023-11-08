@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Intro() {
 	return (
-		<div className="">
+		<div className="text-white">
 			<h1>Intro</h1>
 			{/* <Image
 				alt="space background image"

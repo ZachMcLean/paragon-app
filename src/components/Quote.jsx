@@ -4,7 +4,7 @@ import axios from "axios";
 import { buttonVariants } from "./ui/button";
 import { Button } from "./ui/button";
 
-const Quote = () => {
+const Quote = ({ open }) => {
 	const [quote, setQuote] = useState("");
 	const [author, setAuthor] = useState("");
 
@@ -31,20 +31,22 @@ const Quote = () => {
 	}, []);
 
 	return (
-		<article className="">
+		<article
+			className={`${
+				!open ? "hidden" : ""
+			} max-w-[18rem] w-full flex-1 border border-white/10 rounded-xl my-2 px-2
+			  flex flex-col justify-evenly`}
+		>
 			<h2 className="">Daily API Content</h2>
 			{/* <button>Request</button> */}
 			{/* <Quote /> */}
-			<div className="">
-				<div>
-					{quote}
-					{author}
-				</div>
-
-				<Button className={buttonVariants()} onClick={quoteAPI}>
-					Give me a Quote
-				</Button>
+			<div className="flex flex-col gap-2">
+				<div>{quote}</div>
+				<div className="">- {author}</div>
 			</div>
+			<button className={`justify-start block`} onClick={quoteAPI}>
+				Give me a Quote
+			</button>
 		</article>
 	);
 };

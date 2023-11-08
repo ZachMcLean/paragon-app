@@ -3,7 +3,7 @@ import Provider from "@/components/Provider";
 import { Toaster } from "@/components/ui/toaster";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Poppins } from "next/font/google";
 import SidebarContainer from "@/components/sidebar/sidebar-container";
 import Test from "@/components/sidebar/Test";
 import Sidebar from "@/components/sidebar/Sidebar";
@@ -23,6 +23,7 @@ import {
 
 const inter = Inter({ subsets: ["latin"] });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
+const poppins = Poppins({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -35,10 +36,10 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en" className="overflow-hidden">
-			<body className={jetbrains.className}>
+		<html lang="en" className="">
+			<body className={poppins.className}>
 				<Provider>
-					<main className="flex">
+					<main className="bg-[#1c0c4e] flex">
 						{/* <Navbar /> */}
 						{/* <SidebarContainer /> */}
 						{/* <Test /> */}

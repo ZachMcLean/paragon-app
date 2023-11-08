@@ -11,7 +11,7 @@ export default function Sidebar() {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<aside className="h-screen bg-gray-600">
+		<aside className="h-screen text-white bg-[#303030] rounded-r-lg">
 			<nav
 				className={`${
 					open ? "w-62" : "w-18"
@@ -78,13 +78,9 @@ export default function Sidebar() {
 					))}
 				</ul>
 
-				<div
-					className={`${
-						!open ? "hidden" : ""
-					} max-w-[18rem] w-full flex-1 bg-gray-400 border border-white/10 rounded-xl my-2 px-2`}
-				>
-					<Quote />
-				</div>
+				<hr className="my-3" />
+
+				<Quote open={open} />
 
 				<div className={` border-t border-black/10 flex p-3`}>
 					<div className="border bg-[#333333]">
