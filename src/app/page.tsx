@@ -12,7 +12,7 @@ export default async function Home() {
 	const session = await getServerSession(authOptions);
 	return (
 		// className="min-h-full py-4 px-4 "
-		<div className="w-full">
+		<div className="">
 			<Intro />
 			{/* <Main /> */}
 			{/* <Calendar /> */}

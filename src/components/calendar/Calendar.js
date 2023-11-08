@@ -46,30 +46,9 @@ const EventItem = ({ info }) => {
 	);
 };
 
-// const ACTIONS = {
-// 	INCREMENT: "increment",
-// 	DECREMENT: "decrement",
-// };
-
-// function reducer(state, action) {
-// 	switch (action.type) {
-// 		case ACTIONS.INCREMENT:
-// 			return { count: state.increment + 1 };
-// 		case ACTIONS.DECREMENT:
-// 			return { count: state.decrement - 1 };
-// 		default:
-// 			return state;
-// 	}
-// }
-
 const Calendar = () => {
-	// const inputRef = useRef();
-	// const [state, dispatch] = useReducer(reducer, { select });
 	const [events, setEvents] = useState([]);
 	const [eventInfo, setInfo] = useState([]);
-	// const [eventInfo, setEventInfo] = useState([]);
-	// state for Shadcn UI Dialog
-	// const [showModal, setShowModal] = useState(false);
 
 	// state for NextUI Modal
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -86,29 +65,11 @@ const Calendar = () => {
 	// }, )
 
 	const handleSelect = (info) => {
-		// console.log(info);
-		// const { start, end } =
 		setInfo(info);
 		onOpen();
-		// console.log(info);
-		// console.log(inputRef.current);
-		// inputRef.current = info;
-
-		// console.log(inputRef.current);
-		// dispatch({ type: "select" });
-		// const { start, end } = eventInfo;
-		// const end = handleAction(info);
-		// setEventInfo([...info, { start: start, end: end }]);
-		// handleAction(info);
 	};
 
 	const handleAction = () => {
-		// const handlePrompt = prompt("Enter your event");
-		// const modalInput = setValue;
-		// setEventInfo(info);
-		// console.log(test);
-		// const c = inputRef.current;
-		// console.log(inputRef);
 		const { start, end } = eventInfo;
 		console.log(eventInfo);
 
@@ -136,7 +97,7 @@ const Calendar = () => {
 	// };
 
 	return (
-		<div className=" p-4 w-full my-10 mx-auto">
+		<section className="px-2 py-2">
 			{/* <h1 className="text-right">Calendar</h1> */}
 			<FullCalendar
 				// className="max-w-5xl mx-10 my-auto"
@@ -167,7 +128,7 @@ const Calendar = () => {
 				]}
 				initialView="timeGridWeek"
 				timeZone="UTC"
-				// eventContent={renderEventContent}
+				allDaySlot={false}
 			/>
 
 			{/* <Button onPress={onOpen}>Open Modal</Button> */}
@@ -238,7 +199,7 @@ const Calendar = () => {
 					)}
 				</ModalContent>
 			</Modal>
-		</div>
+		</section>
 	);
 };
 

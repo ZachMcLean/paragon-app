@@ -25,7 +25,7 @@ export default function Test() {
 					<Image
 						alt=""
 						src={Paragon}
-						className={`cursor-pointer duration-500 object-cover w-16 h-16 ${
+						className={`bg-gray-400 cursor-pointer duration-500 object-cover w-16 h-16 ${
 							open && "rotate-[360deg]"
 						}`}
 					/>

@@ -3,9 +3,9 @@ import Calendar from "@/components/calendar/Calendar";
 
 const page = () => {
 	return (
-		<div>
+		<section className="bg-gray-800 w-full">
 			<Calendar />
-		</div>
+		</section>
 	);
 };
 

@@ -5,19 +5,20 @@ import Link from "next/link";
 import { ChevronFirst, ChevronLast, Eye, MoreVertical } from "lucide-react";
 import { links, menus } from "@/lib/links";
 import Paragon from "../../../public/svg/paragon.svg";
+import Quote from "@/components/Quote";
 
 export default function Sidebar() {
-	const [open, setOpen] = useState(true);
+	const [open, setOpen] = useState(false);
 
 	return (
-		<aside className="h-screen bg-gray-200">
+		<aside className="h-screen bg-gray-400">
 			<nav
 				className={`${
 					open ? "w-62" : "w-18"
 				} h-full flex flex-col border-r border-black/10 shadow-sm transition-all  `}
 			>
 				<Link
-					href="/"
+					href=""
 					className={`${
 						!open ? "flex justify-center" : "flex justify-between"
 					} p-2 items-center`}
@@ -31,7 +32,7 @@ export default function Sidebar() {
 						<Image
 							alt=""
 							src={Paragon}
-							className={`cursor-pointer duration-500 object-cover w-16 h-16 ${
+							className={`bg-gray-400 cursor-pointer duration-500 object-cover w-16 h-16 ${
 								open && "rotate-[360deg]"
 							}`}
 						/>
@@ -50,7 +51,7 @@ export default function Sidebar() {
 						<li
 							className={`${
 								!open ? "flex justify-center" : ""
-							} text-gray-900 my-3 p-1 rounded-lg border `}
+							} text-gray-900 my-3 p-1 rounded-md border `}
 							key={link.hash}
 						>
 							<Link
@@ -65,6 +66,14 @@ export default function Sidebar() {
 						</li>
 					))}
 				</ul>
+
+				<div
+					className={`${
+						!open ? "hidden" : ""
+					} max-w-[20rem] w-full flex-1 bg-gray-600 border border-white/10 rounded-xl my-2 px-2`}
+				>
+					<Quote />
+				</div>
 
 				<div className={` border-t border-black/10 flex p-3`}>
 					<div className="border bg-[#333333]">
