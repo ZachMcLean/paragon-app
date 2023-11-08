@@ -11,7 +11,7 @@ export default function Sidebar() {
 	const [open, setOpen] = useState(false);
 
 	return (
-		<aside className="h-screen bg-gray-400">
+		<aside className="h-screen bg-gray-600">
 			<nav
 				className={`${
 					open ? "w-62" : "w-18"
@@ -23,6 +23,12 @@ export default function Sidebar() {
 						!open ? "flex justify-center" : "flex justify-between"
 					} p-2 items-center`}
 				>
+					<button
+						onClick={() => setOpen((open) => !open)}
+						className="p-1 rounded-lg bg-gray-400 hover:bg-gray-300"
+					>
+						{open ? <ChevronFirst size={25} /> : <ChevronLast size={25} />}
+					</button>
 					<div
 						className={`${
 							!open ? "hidden" : ""
@@ -38,12 +44,12 @@ export default function Sidebar() {
 						/>
 						<h2 className="ml-2">Paragon</h2>
 					</div>
-					<button
+					{/* <button
 						onClick={() => setOpen((open) => !open)}
 						className="p-1 rounded-lg bg-gray-400 hover:bg-gray-300"
 					>
 						{open ? <ChevronFirst size={25} /> : <ChevronLast size={25} />}
-					</button>
+					</button> */}
 				</Link>
 
 				<ul className="flex-1 pt-4 px-2 border-t border-black/10">
@@ -51,7 +57,8 @@ export default function Sidebar() {
 						<li
 							className={`${
 								!open ? "flex justify-center" : ""
-							} text-gray-900 my-3 p-1 rounded-md border `}
+							} text-gray-900 my-3 p-1 rounded-md border border-gray-400/10 shadow-sm
+								hover:bg-slate-400 hover:shadow-lg`}
 							key={link.hash}
 						>
 							<Link
@@ -59,7 +66,11 @@ export default function Sidebar() {
 								href={link.hash}
 							>
 								{link.icon}
-								<span className={`${!open ? "w-0 hidden" : "w-52 ml-3"}`}>
+								<span
+									className={`${
+										!open ? "w-0 hidden" : "w-52 ml-3"
+									} text-gray-200`}
+								>
 									{link.text}
 								</span>
 							</Link>
@@ -70,7 +81,7 @@ export default function Sidebar() {
 				<div
 					className={`${
 						!open ? "hidden" : ""
-					} max-w-[20rem] w-full flex-1 bg-gray-600 border border-white/10 rounded-xl my-2 px-2`}
+					} max-w-[18rem] w-full flex-1 bg-gray-400 border border-white/10 rounded-xl my-2 px-2`}
 				>
 					<Quote />
 				</div>

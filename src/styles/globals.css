@@ -33,6 +33,11 @@
 		--ring: 222.2 84% 4.9%;
 
 		--radius: 0.5rem;
+
+		--fc-highlight-color: rgb(255, 0, 0) !important;
+		--fc-today-bg-color: blue !important;
+
+		--fc-border-color: black;
 	}
 
 	.dark {
@@ -65,20 +70,73 @@
 		--ring: 212.7 26.8% 83.9%;
 	}
 }
+
+.fc-col-header-cell-cushion {
+	@apply !py-4;
+}
+
+/* .fc-timegrid-slot {
+	border: none !important;
+} */
+.fc-timegrid-slot-minor {
+	border-top-style: none !important;
+	/* border: none !important; */
+}
+
 .fc-button.fc-prev-button,
 .fc-button.fc-next-button,
 .fc-button.fc-button-primary {
 	@apply bg-red-500 rounded-xl;
 }
 
+/* the main calendar view */
 .fc-view-harness,
 .fc-view-harness-active {
 	@apply bg-gray-400;
 }
+
+/* main header */
 .fc-header-toolbar,
 .fc-toolbar {
-	@apply bg-blue-400;
+	@apply bg-blue-400 p-2 !mb-0;
 }
+
+.fc-toolbar-title {
+	@apply text-white;
+}
+
+.fc-daygrid-day-frame,
+.fc-scrollgrid-sync-inner {
+	/* @apply bg-red-500; */
+}
+
+.fc-daygrid-day-bg {
+	@apply bg-blue-500;
+}
+.fc-day-today {
+	@apply bg-green-500;
+}
+
+.myclassname {
+	@apply bg-red-500;
+}
+.fc .fc-col-header-cell-cushion {
+	/* display: inline-block;
+	padding: 2px 4px; */
+}
+
+/* .fc-timegrid-slot,
+.fc-today-highlight {
+	--fc-highlight-color: 'rgba(255, 255, 255, 0.9)',
+	background-color: var(--fc-highlight-color);
+} */
+
+/* .fc-day {
+	@apply bg-purple-500;
+} */
+/* .fc-timegrid-now-indicator-container {
+	@apply bg-red-500;
+} */
 
 /* @screen sm {
 	.fc-view-harness {

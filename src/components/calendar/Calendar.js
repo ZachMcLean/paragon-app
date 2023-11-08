@@ -97,7 +97,7 @@ const Calendar = () => {
 	// };
 
 	return (
-		<section className="px-2 py-2">
+		<section className="p-2">
 			{/* <h1 className="text-right">Calendar</h1> */}
 			<FullCalendar
 				// className="max-w-5xl mx-10 my-auto"
@@ -129,6 +129,10 @@ const Calendar = () => {
 				initialView="timeGridWeek"
 				timeZone="UTC"
 				allDaySlot={false}
+				eventClassNames={"myclassname"}
+				eventBackgroundColor="myclassname"
+				// slotDuration="00:30:00"
+				slotLabelInterval={{ hours: 1 }}
 			/>
 
 			{/* <Button onPress={onOpen}>Open Modal</Button> */}

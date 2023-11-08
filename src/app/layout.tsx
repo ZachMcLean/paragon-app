@@ -35,7 +35,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" className="overflow-hidden">
 			<body className={jetbrains.className}>
 				<Provider>
 					<main className="flex">
