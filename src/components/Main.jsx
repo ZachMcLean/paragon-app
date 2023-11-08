@@ -7,8 +7,8 @@
 // import Quote from "./Quote";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { buttonVariants } from "../ui/button";
-import { Button } from "../ui/button";
+import { buttonVariants } from "./ui/button";
+import { Button } from "./ui/button";
 
 const Main = () => {
 	const [quote, setQuote] = useState("");

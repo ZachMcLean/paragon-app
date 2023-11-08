@@ -136,7 +136,7 @@ const Calendar = () => {
 	// };
 
 	return (
-		<div className="p-4 w-full my-10 mx-auto">
+		<div className=" p-4 w-full my-10 mx-auto">
 			{/* <h1 className="text-right">Calendar</h1> */}
 			<FullCalendar
 				// className="max-w-5xl mx-10 my-auto"

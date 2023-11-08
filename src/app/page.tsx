@@ -6,12 +6,13 @@ import { getServerSession } from "next-auth";
 // import Link from "next/link";
 // import Calendar from "@/components/calendar/Calendar";
 // import Main from "@/components/Main";
-import Intro from "@/components/page-components/Intro";
+import Intro from "@/components/Intro";
 
 export default async function Home() {
 	const session = await getServerSession(authOptions);
 	return (
-		<div className="min-h-full py-4 px-4 ">
+		// className="min-h-full py-4 px-4 "
+		<div className="w-full">
 			<Intro />
 			{/* <Main /> */}
 			{/* <Calendar /> */}

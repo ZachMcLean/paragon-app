@@ -66,18 +66,18 @@
 	}
 }
 
-@layer base {
+/* @layer base {
 	* {
 		@apply border-border;
 	}
 	body {
 		@apply bg-background text-foreground;
 	}
-}
-@font-face {
+} */
+/* @font-face {
 	font-family: "JetBrainsMono";
 	src: url("../../public/fonts/GreatVibes-Regular.ttf");
-}
+} */
 /* @font-face { 
     font-family: "glory"; 
     src: url("../public/assets/glory.ttf"); 

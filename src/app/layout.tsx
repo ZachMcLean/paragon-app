@@ -1,10 +1,25 @@
 import Navbar from "@/components/Navbar";
 import Provider from "@/components/Provider";
-import Calendar from "@/components/calendar/Calendar";
 import { Toaster } from "@/components/ui/toaster";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
+import SidebarContainer from "@/components/sidebar/sidebar-container";
+import Test from "@/components/sidebar/Test";
+import Sidebar from "@/components/sidebar/Sidebar";
+// import Sidebar, { SidebarItem } from "../components/sidebar/Sidebar";
+import {
+	Eye,
+	CalendarDays,
+	ScrollText,
+	Sunrise,
+	Sunset,
+	User,
+	LogIn,
+	LogOut,
+	Settings,
+	LifeBuoy,
+} from "lucide-react";
 
 const inter = Inter({ subsets: ["latin"] });
 const jetbrains = JetBrains_Mono({ subsets: ["latin"] });
@@ -23,8 +38,11 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={jetbrains.className}>
 				<Provider>
-					<main className="">
-						<Navbar />
+					<main className="flex">
+						{/* <Navbar /> */}
+						{/* <SidebarContainer /> */}
+						{/* <Test /> */}
+						<Sidebar />
 						{children}
 					</main>
 					<Toaster />
