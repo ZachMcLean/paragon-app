@@ -34,10 +34,44 @@
 
 		--radius: 0.5rem;
 
-		--fc-highlight-color: rgb(255, 0, 0) !important;
-		--fc-today-bg-color: blue !important;
+		/* Hex && RGB Colors
+		* -----------------------
+		* #353535 lighter black
+		* #303030 darker black
+		* -----------------------
+		* #944dd3 light purple
+		* #733fd7 medium purple
+		* #302384 dark purple
+		* #1c0c4e darkest purple
+		* #f6f0ff white-option
+		* -----------------------
+		* #141414	RGB(20, 20, 20) "sooty" dark gray
+		* #282828	RGB(40, 40, 40) "Dire Wolf" lighterish gray
+		* #230046	RGB(35, 0, 70) darker purple
+		* #320064	RGB(50, 0, 100) lighter purple
 
-		--fc-border-color: black;
+		* Dark Purple Colors for BG?
+		* #050309 
+		* #0a0612
+		* #0f019b
+		* 140c24
+
+		*/
+
+		--fc-border-color: gray;
+
+		--fc-button-bg-color: none;
+		--fc-button-border-color: #353535;
+		--fc-button-hover-bg-color: #733fd7;
+		--fc-button-hover-border-color: #1a252f;
+		--fc-button-active-bg-color: #733fd7;
+		--fc-button-active-border-color: #151e27;
+
+		--fc-highlight-color: rgb(148 77 211) !important;
+		/* --fc-today-bg-color: rgb(148, 163, 184) !important; */
+		--fc-today-bg-color: none !important;
+
+		--fc-now-indicator-color: rgb(148 77 211);
 	}
 
 	.dark {
@@ -71,60 +105,107 @@
 	}
 }
 
-.fc-col-header-cell-cushion {
-	@apply !py-4;
+/* Not Sure */
+.fc .fc-media-screen {
+	/* @apply bg-red-500; */
 }
 
-/* .fc-timegrid-slot {
-	border: none !important;
-} */
-.fc-timegrid-slot-minor {
-	border-top-style: none !important;
-	/* border: none !important; */
-}
-
-.fc-button.fc-prev-button,
-.fc-button.fc-next-button,
-.fc-button.fc-button-primary {
-	@apply bg-red-500 rounded-xl;
-}
-
-/* the main calendar view */
-.fc-view-harness,
-.fc-view-harness-active {
-	@apply bg-gray-400;
-}
+/* -------------------------------------- */
 
 /* main header */
 .fc-header-toolbar,
 .fc-toolbar {
-	@apply bg-blue-400 p-2 !mb-0;
+	@apply bg-[#353535] px-2 py-4 !mb-0;
 }
-
 .fc-toolbar-title {
-	@apply text-white;
+	@apply text-white !text-base;
 }
+/* -------------------------------------- */
 
+/* Main Buttons */
+.fc-button {
+	@apply !bg-opacity-0;
+}
+.fc-button.fc-prev-button,
+.fc-button.fc-next-button,
+.fc-button.fc-button-primary {
+	/* @apply bg-[#944dd3] rounded-xl; */
+	/* @apply !bg-opacity-0; */
+}
+/* .fc-button, */
+.fc-button-active {
+	/* .fc-button-primary { */
+	@apply !bg-[#733fd7];
+}
+/* -------------------------------------- */
+
+/* Main Body */
+.fc-timegrid-slot-minor {
+	border-top-style: none !important;
+	/* border: none !important; */
+}
+/* the main calendar view */
+.fc-view-harness,
+.fc-view-harness-active {
+	@apply bg-[#f6f0ff];
+}
+.fc-scrollgrid-section,
+.fc-scrollgrid-section-body,
+.fc-scrollgrid-section-liquid {
+	@apply text-white !bg-[#303030];
+}
+/* -------------------------------------- */
+
+/* Main Header Row Inside Harness */
+.fc-col-header-cell-cushion {
+	@apply !py-2 text-xs font-medium;
+}
+.fc-col-header,
+.fc-col-header-cell {
+	@apply !border-b-0;
+}
+.fc-col-header-cell {
+	@apply shadow-xl;
+}
+/* The time sigment labels on far left column */
+.fc-timegrid-slot {
+	@apply text-gray-300/90;
+}
+.fc-scrollgrid-sync-inner {
+	@apply !border-none;
+}
+/* ------------------------------------------ */
+
+/* -------------------------------------------------------------- */
 .fc-daygrid-day-frame,
 .fc-scrollgrid-sync-inner {
 	/* @apply bg-red-500; */
 }
 
 .fc-daygrid-day-bg {
-	@apply bg-blue-500;
+	/* @apply bg-blue-500; */
 }
 .fc-day-today {
-	@apply bg-green-500;
+	@apply bg-[#302384];
 }
 
 .myclassname {
-	@apply bg-red-500;
+	@apply bg-[#944dd3];
 }
 .fc .fc-col-header-cell-cushion {
 	/* display: inline-block;
 	padding: 2px 4px; */
 }
-
+.fc-col-header-cell-cushion {
+	/* @apply text-white; */
+}
+.fc-timegrid-col,
+.fc-timegrid-axis {
+}
+.fc-timegrid-col-frame {
+	/* @apply bg-[#302384] px-4; */
+}
+/* ------------------------------------------------------------------- */
 /* .fc-timegrid-slot,
 .fc-today-highlight {
 	--fc-highlight-color: 'rgba(255, 255, 255, 0.9)',

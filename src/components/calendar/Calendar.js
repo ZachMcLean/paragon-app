@@ -97,7 +97,7 @@ const Calendar = () => {
 	// };
 
 	return (
-		<section className="p-2">
+		<section className="h-full">
 			{/* <h1 className="text-right">Calendar</h1> */}
 			<FullCalendar
 				// className="max-w-5xl mx-10 my-auto"
@@ -133,6 +133,8 @@ const Calendar = () => {
 				eventBackgroundColor="myclassname"
 				// slotDuration="00:30:00"
 				slotLabelInterval={{ hours: 1 }}
+				height="100vh"
+				navLinks={true}
 			/>
 
 			{/* <Button onPress={onOpen}>Open Modal</Button> */}

@@ -3,7 +3,7 @@ import Calendar from "@/components/calendar/Calendar";
 
 const page = () => {
 	return (
-		<section className="bg-gray-800 w-full">
+		<section className="w-full h-screen">
 			<Calendar />
 		</section>
 	);
