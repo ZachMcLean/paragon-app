@@ -37,7 +37,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en" className="">
-			<body className={poppins.className}>
+			<body className={inter.className}>
 				<Provider>
 					<main className="bg-[#1c0c4e] flex">
 						{/* <Navbar /> */}

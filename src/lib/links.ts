@@ -12,35 +12,42 @@ import {
 	LifeBuoy,
 } from "lucide-react";
 
+export const dayNumStyle = "background-color: red;";
+
+const styles = "w-8 h-8 p-1 rounded-lg";
+
 export const links = [
 	{
 		text: "Calendar",
 		hash: "/calendar",
 		icon: React.createElement(CalendarDays, {
-			size: "25",
-			className: "w-10 h-10 p-1 rounded-lg bg-gray-200 hover:bg-gray-300",
+			color: "white",
+			// size: "25",
+			className: `${styles}`,
 		}),
 	},
 	{
 		text: "Notes",
 		hash: "/notes",
 		icon: React.createElement(ScrollText, {
-			size: "25",
-			className: "w-10 h-10 p-1 rounded-lg bg-gray-300 hover:bg-gray-400",
+			color: "white",
+			className: styles,
 		}),
 	},
 	{
 		text: "Routines",
 		hash: "/routines",
 		icon: React.createElement(Sunrise, {
-			className: "w-10 h-10 p-1 rounded-lg bg-gray-200 hover:bg-gray-300",
+			color: "white",
+			className: styles,
 		}),
 	},
 	{
 		text: "Profile",
 		hash: "/profile",
 		icon: React.createElement(User, {
-			className: "w-10 h-10 p-1 rounded-lg bg-gray-200 hover:bg-gray-300",
+			color: "white",
+			className: styles,
 		}),
 	},
 ] as const;

@@ -32,21 +32,20 @@ const Quote = ({ open }) => {
 
 	return (
 		<article
-			className={`${
-				!open ? "hidden" : ""
-			} max-w-[18rem] w-full flex-1 border border-white/10 rounded-xl my-2 px-2
-			  flex flex-col justify-evenly`}
+			className={`${!open ? "hidden" : ""}  
+				w-[300px] flex-1 border border-white/10 rounded-xl my-2`}
 		>
-			<h2 className="">Daily API Content</h2>
-			{/* <button>Request</button> */}
-			{/* <Quote /> */}
-			<div className="flex flex-col gap-2">
-				<div>{quote}</div>
-				<div className="">- {author}</div>
+			<div className="max-w-[2rem] h-full flex flex-col justify-around p-2 text-left bg-[#733fd7]">
+				<h2 className="italic py-4 font-semibold">Quote of the Day: </h2>
+
+				<div className="flex flex-col py-4">
+					<div className="text-gray-500/70">{quote}</div>
+					<div className="mt-2">- {author}</div>
+				</div>
+				<button className={``} onClick={quoteAPI}>
+					Give me a Quote
+				</button>
 			</div>
-			<button className={`justify-start block`} onClick={quoteAPI}>
-				Give me a Quote
-			</button>
 		</article>
 	);
 };

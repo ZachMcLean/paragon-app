@@ -58,7 +58,7 @@
 
 		*/
 
-		--fc-border-color: gray;
+		--fc-border-color: rgb(255 255 255 / 0.1) !important;
 
 		--fc-button-bg-color: none;
 		--fc-button-border-color: #353535;
@@ -69,7 +69,7 @@
 
 		--fc-highlight-color: rgb(148 77 211) !important;
 		/* --fc-today-bg-color: rgb(148, 163, 184) !important; */
-		--fc-today-bg-color: none !important;
+		/* --fc-today-bg-color: #733fd7 !important; */
 
 		--fc-now-indicator-color: rgb(148 77 211);
 	}
@@ -110,12 +110,20 @@
 	/* @apply bg-red-500; */
 }
 
+/* custom class for event */
+.myclassname {
+	@apply bg-[#944dd3];
+}
+
+.fc-daygrid-day-number {
+	/* background-color: var(--fc-today-bg-color); */
+}
 /* -------------------------------------- */
 
 /* main header */
 .fc-header-toolbar,
 .fc-toolbar {
-	@apply bg-[#353535] px-2 py-4 !mb-0;
+	@apply bg-[#353535] px-3 py-4 !mb-0;
 }
 .fc-toolbar-title {
 	@apply text-white !text-base;
@@ -137,6 +145,9 @@
 	/* .fc-button-primary { */
 	@apply !bg-[#733fd7];
 }
+.fc-today-button {
+	@apply !bg-[#733fd7];
+}
 /* -------------------------------------- */
 
 /* Main Body */
@@ -147,7 +158,7 @@
 /* the main calendar view */
 .fc-view-harness,
 .fc-view-harness-active {
-	@apply bg-[#f6f0ff];
+	background-color: var(--fc-border-color);
 }
 .fc-scrollgrid-section,
 .fc-scrollgrid-section-body,
@@ -189,9 +200,6 @@
 	@apply bg-[#302384];
 }
 
-.myclassname {
-	@apply bg-[#944dd3];
-}
 .fc .fc-col-header-cell-cushion {
 	/* display: inline-block;
 	padding: 2px 4px; */
@@ -206,11 +214,9 @@
 	/* @apply bg-[#302384] px-4; */
 }
 /* ------------------------------------------------------------------- */
-/* .fc-timegrid-slot,
-.fc-today-highlight {
-	--fc-highlight-color: 'rgba(255, 255, 255, 0.9)',
-	background-color: var(--fc-highlight-color);
-} */
+.fc-timegrid-slot {
+	/* @apply bg-red-500; */
+}
 
 /* .fc-day {
 	@apply bg-purple-500;

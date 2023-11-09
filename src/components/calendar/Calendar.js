@@ -46,6 +46,15 @@ const EventItem = ({ info }) => {
 	);
 };
 
+function handleToday(obj) {
+	const { el, isToday, dayNumberText } = obj;
+	if (isToday) {
+		// let  = document.querySelector("fc-daygrid-day-number");
+		dayNumberText.className === "myclassname";
+		console.log(dayNumberText.innerHTML);
+	}
+}
+
 const Calendar = () => {
 	const [events, setEvents] = useState([]);
 	const [eventInfo, setInfo] = useState([]);
@@ -126,7 +135,7 @@ const Calendar = () => {
 					// "timeGridDay",
 					// "timeGridWeek",
 				]}
-				initialView="timeGridWeek"
+				initialView="dayGridMonth"
 				timeZone="UTC"
 				allDaySlot={false}
 				eventClassNames={"myclassname"}
@@ -135,6 +144,9 @@ const Calendar = () => {
 				slotLabelInterval={{ hours: 1 }}
 				height="100vh"
 				navLinks={true}
+				dayCellDidMount={(arg) => {
+					handleToday(arg);
+				}}
 			/>
 
 			{/* <Button onPress={onOpen}>Open Modal</Button> */}
