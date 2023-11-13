@@ -39,7 +39,7 @@ export default function RootLayout({
 		<html lang="en" className="">
 			<body className={inter.className}>
 				<Provider>
-					<main className="bg-[#1c0c4e] flex">
+					<main className="text-white bg-[#303030] flex">
 						{/* <Navbar /> */}
 						{/* <SidebarContainer /> */}
 						{/* <Test /> */}

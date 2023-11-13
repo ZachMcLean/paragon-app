@@ -48,14 +48,18 @@ const EventItem = ({ info }) => {
 
 function handleToday(obj) {
 	const { el, isToday, dayNumberText } = obj;
+	const item = el.classList[3];
 	if (isToday) {
-		// let  = document.querySelector("fc-daygrid-day-number");
-		dayNumberText.className === "myclassname";
-		console.log(dayNumberText.innerHTML);
+		let string = document.getElementById(`fc-dom-109`);
+		// string.className = "myclassname";
+		// dayNumberText.className === "myclassname";
+		console.log(isToday, dayNumberText, string, el, item);
 	}
 }
 
 const Calendar = () => {
+	const [dateStyle, setDateStyle] = useState("myclassname");
+
 	const [events, setEvents] = useState([]);
 	const [eventInfo, setInfo] = useState([]);
 

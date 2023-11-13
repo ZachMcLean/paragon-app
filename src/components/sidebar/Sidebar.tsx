@@ -18,7 +18,7 @@ export default function Sidebar() {
 					border-r border-black/10 shadow-sm transition-all`}
 			>
 				<Link
-					href=""
+					href="/"
 					className={`${
 						!open
 							? "flex justify-center py-4 my-1"
