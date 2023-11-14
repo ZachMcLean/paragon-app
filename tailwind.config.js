@@ -76,6 +76,6 @@ module.exports = {
 	},
 	// darkMode: "class",
 	plugins: [require("tailwindcss-animate")],
-	// plugins: [require("daisyui")],
+	plugins: [require("daisyui")],
 	// plugins: [nextui()],
 };

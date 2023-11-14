@@ -44,7 +44,7 @@ export const links = [
 	},
 	{
 		text: "Profile",
-		hash: "/profile",
+		hash: "/admin",
 		icon: React.createElement(User, {
 			color: "white",
 			className: styles,

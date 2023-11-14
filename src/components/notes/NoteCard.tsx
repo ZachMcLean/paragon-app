@@ -21,7 +21,7 @@ export default function NoteCard() {
 					<p>Card Content</p>
 				</CardContent>
 				<CardFooter>
-					<Link href="/create-note">Read more...</Link>
+					<Link href="/blog/id">Read more...</Link>
 				</CardFooter>
 			</Card>
 		</div>

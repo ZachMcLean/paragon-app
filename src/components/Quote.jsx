@@ -13,7 +13,7 @@ const Quote = ({ open }) => {
 		try {
 			const data = await axios.get("https://api.quotable.io/random");
 			arrOfQuotes = data.data;
-			console.log(arrOfQuotes);
+			// console.log(arrOfQuotes); // shows the quote object in console
 		} catch (e) {
 			console.log(e);
 		}
