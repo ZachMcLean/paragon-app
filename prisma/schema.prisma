@@ -34,3 +34,14 @@ model Note {
   tagId     String
   tag       Tag      @relation(fields: [tagId], references: [id])
 }
+
+// model Event {
+//   id     String @id @default(cuid())
+//   title  String @db.VarChar(100)
+//   description String
+//   color       String
+//   startTime   DateTime 
+//   endTime
+//   createdAt DateTime @default(now())
+//   updatedUt DateTime @updatedAt
+// }
