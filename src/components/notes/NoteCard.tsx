@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import {
 	Card,
 	CardContent,
@@ -8,22 +8,35 @@ import {
 	CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { Tag } from "@prisma/client";
 
-export default function NoteCard() {
+interface NoteCardProps {
+	note: {
+		id: string;
+		title: string;
+		content: string;
+		tag: Tag;
+	};
+}
+
+const NoteCard: FC<NoteCardProps> = ({ note }) => {
+	const { id, title, content, tag } = note;
+
 	return (
 		<div className="max-w-lg">
 			<Card>
 				<CardHeader>
-					<CardTitle>Card Title</CardTitle>
-					<CardDescription>Card Description</CardDescription>
+					<CardTitle>{title}</CardTitle>
 				</CardHeader>
 				<CardContent>
-					<p>Card Content</p>
+					<p>{content.slice(0, 30)}</p>
+					<span className="badge">{tag.name}</span>
 				</CardContent>
 				<CardFooter>
-					<Link href="/blog/id">Read more...</Link>
+					<Link href={`/blog/${id}`}>Read more...</Link>
 				</CardFooter>
 			</Card>
 		</div>
 	);
-}
+};
+export default NoteCard;

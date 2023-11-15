@@ -10,10 +10,19 @@ import { Tag } from "@prisma/client";
 interface NoteFormProps {
 	submit: SubmitHandler<FormInputPost>;
 	isEditing: boolean;
+	initialValue?: FormInputPost;
+	isLoadingSubmit: boolean;
 }
 
-const NoteForm: FC<NoteFormProps> = ({ submit, isEditing }) => {
-	const { register, handleSubmit } = useForm<FormInputPost>();
+const NoteForm: FC<NoteFormProps> = ({
+	submit,
+	isEditing,
+	initialValue,
+	isLoadingSubmit,
+}) => {
+	const { register, handleSubmit } = useForm<FormInputPost>({
+		defaultValues: initialValue,
+	});
 
 	// fetch list tags
 	const { data: dataTags, isPending: isLoadingTags } = useQuery<Tag[]>({
@@ -45,7 +54,7 @@ const NoteForm: FC<NoteFormProps> = ({ submit, isEditing }) => {
 				<span className="loading loading-infinity loading-lg"></span>
 			) : (
 				<select
-					{...register("tag", { required: true })}
+					{...register("tagId", { required: true })}
 					className="select select-bordered w-full max-w-lg"
 					defaultValue={""}
 				>
@@ -57,13 +66,18 @@ const NoteForm: FC<NoteFormProps> = ({ submit, isEditing }) => {
 							{tag.name}
 						</option>
 					))}
-					<option>Han Solo</option>
-					<option>Greedo</option>
 				</select>
 			)}
 
 			<button type="submit" className="btn btn-primary w-full max-w-lg">
-				{isEditing ? "Update" : "Create"}
+				{isLoadingSubmit && <span className="loading loading-spinner"></span>}
+				{isEditing
+					? isLoadingSubmit
+						? "Updating.."
+						: "Update"
+					: isLoadingSubmit
+					? "Creating.."
+					: "Create"}
 			</button>
 		</form>
 	);
