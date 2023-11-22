@@ -105,9 +105,16 @@
 	}
 }
 
+.PopoverContent {
+	width: var(--radix-popover-trigger-width);
+	max-height: var(--radix-popover-content-available-height);
+}
+
 /* Not Sure */
-.fc .fc-media-screen {
+.fc,
+.fc-media-screen {
 	/* @apply bg-red-500; */
+	@apply !bg-opacity-0;
 }
 
 /* custom class for event */

@@ -17,15 +17,15 @@ export default function Sidebar() {
 					h-full flex flex-col 
 					border-r border-black/10 shadow-sm transition-all`}
 			>
-				<Link
-					href="/"
+				<div
 					className={`${
 						!open
 							? "flex justify-center py-4 my-1"
 							: "flex justify-between py-2 pr-3"
 					}  items-center`}
 				>
-					<div
+					<Link
+						href="/"
 						className={`${!open ? "hidden" : ""} 
 						flex items-center justify-center`}
 					>
@@ -38,7 +38,7 @@ export default function Sidebar() {
 							}`}
 						/>
 						<h2 className="font-thin  text-2xl">Paragon</h2>
-					</div>
+					</Link>
 					<button
 						onClick={() => setOpen((open) => !open)}
 						className="p-1 rounded-lg bg-gray-700 hover:bg-[#302384]"
@@ -52,7 +52,7 @@ export default function Sidebar() {
 					>
 						{open ? <ChevronFirst size={25} /> : <ChevronLast size={25} />}
 					</button> */}
-				</Link>
+				</div>
 
 				<ul className="flex-1  py-8 px-2 border-t border-white/10">
 					{links.map((link, index) => (
