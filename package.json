@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"postInstall": "prisma generate"
+		"postInstall": "npx prisma generate"
 	},
 	"dependencies": {
 		"@fullcalendar/core": "^6.1.9",
