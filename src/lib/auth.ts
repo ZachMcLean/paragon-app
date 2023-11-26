@@ -10,8 +10,8 @@ export const authOptions: NextAuthOptions = {
 	session: {
 		strategy: "jwt",
 	},
-	// This is where we specify using our custom form
-	// instead of the default nextAuth CredentialsProvider form
+	// This is where we specify using our custom form PAGE
+	// instead of the default nextAuth CredentialsProvider form PAGE
 	pages: {
 		signIn: "/sign-in",
 	},

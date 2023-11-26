@@ -29,7 +29,8 @@
 		".next/types/**/*.ts",
 		"src/components/calendar/Calendar.js",
 		"src/components/Main.jsx",
-		"src/components/sidebar/Sidebar-old.jsx"
+		"src/components/sidebar/Sidebar-old.jsx",
+		"src/components/sidebar/user-info.tsx"
 	],
 	"exclude": ["node_modules"]
 }

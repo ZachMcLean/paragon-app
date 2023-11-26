@@ -6,6 +6,7 @@ import { ChevronFirst, ChevronLast, Eye, MoreVertical } from "lucide-react";
 import { links, menus } from "@/lib/links";
 import Paragon from "../../../public/svg/paragon.svg";
 import Quote from "@/components/Quote";
+import UserInfo from "./user-info";
 
 export default function Sidebar() {
 	const [open, setOpen] = useState(false);
@@ -92,14 +93,14 @@ export default function Sidebar() {
 						className={`flex justify-between items-center
               				overflow-hidden transition-all p-3 bg-[#333333] 
 							rounded-xl
-					${!open ? "w-0" : "w-52 ml-3"}`}
+						${!open ? "w-0" : "w-52 ml-3"}`}
 					>
-						{/* gray box */}
+						<UserInfo open={open} />
 						{/* name and email */}
-						<div className={`${!open ? "hidden" : ""} leading-5`}>
+						{/* <div className={`${!open ? "hidden" : ""} leading-5`}>
 							<h4 className="font-semibold">John Doe</h4>
 							<span className="text-xs text-gray-600">johndoe@gmail.com</span>
-						</div>
+						</div> */}
 						{/* vertical 3 dots icon */}
 						{!open ? "" : <MoreVertical size={20} />}
 					</div>
