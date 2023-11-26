@@ -17,6 +17,7 @@ model User {
   password  String 
   createAt  DateTime @default(now())
   updatedUt DateTime @updatedAt
+  Event Event[]
 }
 
 model Tag {
@@ -35,13 +36,15 @@ model Note {
   tag       Tag      @relation(fields: [tagId], references: [id])
 }
 
-// model Event {
-//   id     String @id @default(cuid())
-//   title  String @db.VarChar(100)
-//   description String
-//   color       String
-//   startTime   DateTime 
-//   endTime
-//   createdAt DateTime @default(now())
-//   updatedUt DateTime @updatedAt
-// }
+model Event {
+  id          String @id @default(cuid())
+  title       String @db.VarChar(100)
+  description String
+  color       String
+  startTime   DateTime 
+  endTime     DateTime 
+  createdAt   DateTime @default(now())
+  updatedUt   DateTime @updatedAt
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+}

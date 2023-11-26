@@ -21,6 +21,7 @@ import {
 } from "@/components/ui/popover";
 
 import DateTimePicker from "react-datetime-picker";
+import "react-datetime-picker/dist/DateTimePicker.css";
 // type ValuePiece = Date | null;
 
 // type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -47,7 +48,8 @@ function handleToday(obj) {
 
 const Calendar = () => {
 	//
-	const [value, onChange] = useState(new Date());
+	const [startValue, onStartChange] = useState(new Date());
+	const [endValue, onEndChange] = useState(new Date());
 
 	const [dateStyle, setDateStyle] = useState("myclassname");
 
@@ -188,8 +190,19 @@ const Calendar = () => {
 								placeholder="post title..."
 								className="input input-bordered w-full max-w-lg my-4"
 							/>
-							<div className="p-2 my-2 bg-gray-300 border borderblack/50">
-								<DateTimePicker onChange={onChange} value={value} />
+							<div className="bg-gray-300 border borderblack/50 w-full">
+								<DateTimePicker
+									className={` `}
+									onChange={onStartChange}
+									value={startValue}
+								/>
+							</div>
+							<div className="mb-3">
+								<DateTimePicker
+									className={`light bg-white my-3`}
+									onChange={onEndChange}
+									value={endValue}
+								/>
 							</div>
 
 							<textarea
