@@ -12,28 +12,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X } from "lucide-react";
 
-import {
-	Popover,
-	PopoverContent,
-	PopoverTrigger,
-	PopoverAnchor,
-	PopoverClose,
-} from "@/components/ui/popover";
+// import {
+// 	Popover,
+// 	PopoverContent,
+// 	PopoverTrigger,
+// 	PopoverAnchor,
+// 	PopoverClose,
+// } from "@/components/ui/popover";
 
-import DateTimePicker from "react-datetime-picker";
-import "react-datetime-picker/dist/DateTimePicker.css";
+import EventItem from "./EventItem";
+import EventModalForm from "./EventModalForm";
+
 // type ValuePiece = Date | null;
 
 // type Value = ValuePiece | [ValuePiece, ValuePiece];
-
-const EventItem = ({ info }) => {
-	const { event } = info;
-	return (
-		<div>
-			<p>{event.title}</p>
-		</div>
-	);
-};
 
 function handleToday(obj) {
 	const { el, isToday, dayNumberText } = obj;
@@ -47,26 +39,14 @@ function handleToday(obj) {
 }
 
 const Calendar = () => {
-	//
-	const [startValue, onStartChange] = useState(new Date());
-	const [endValue, onEndChange] = useState(new Date());
-
 	const [dateStyle, setDateStyle] = useState("myclassname");
 
 	const [events, setEvents] = useState([]);
-	const [eventInfo, setInfo] = useState([]);
 
-	// state for NextUI Modal
-	// const { isOpen, onOpen, onOpenChange } = useDisclosure();
-
-	// Popover
 	const [open, onOpenChange] = useState();
 
-	// state for NextUI Input
-	// const [value, setValue] = useState("");
+	const [selectInfo, setSelectInfo] = useState([]);
 	const calendarRef = useRef();
-
-	const eventInputRef = useRef();
 
 	// useEffect(() => {
 	// 	if(inputRef.currentValue !== undefined) {
@@ -75,34 +55,15 @@ const Calendar = () => {
 	// 	const handleAction();
 	// }, )
 
-	const handleSelect = (info) => {
-		setInfo(info);
-		onOpenChange(true);
-		console.log("open: " + open);
-		console.log("info: " + info);
+	const handleSelect = (select) => {
+		setSelectInfo(select);
+		// console.log("open: " + open);
+		console.log("info: " + select);
 	};
 
-	const handleDateClick = (info) => {
-		setInfo(info);
+	const handleDateClick = (dateclick) => {
+		setSelectInfo(dateclick);
 		onOpenChange(true);
-	};
-
-	const handleAction = () => {
-		const { start, end } = eventInfo;
-		console.log(eventInfo);
-
-		// console.log(value);
-		console.log(eventInputRef.current.value);
-		setEvents([
-			...events,
-			{
-				start: start,
-				end: end,
-				title: eventInputRef.current.value,
-				id: uuid(),
-			},
-			// eventColor: '#378006'
-		]);
 	};
 
 	// const renderEventContent = (eventInfo) => {
@@ -126,7 +87,7 @@ const Calendar = () => {
 				selectable={true}
 				events={events}
 				dateClick={handleDateClick}
-				select={handleSelect}
+				select={(select) => document.getElementById("my_modal_1").showModal()}
 				titleFormat={{
 					year: "numeric",
 					month: "long",
@@ -159,84 +120,11 @@ const Calendar = () => {
 				}}
 			/>
 
-			<Popover modal className="" open={open} onOpenChange={onOpenChange}>
-				{/* <PopoverTrigger>
-					<Button variant="destructive">open menu</Button>
-				</PopoverTrigger> */}
-				<PopoverAnchor asChild>
-					<div className="">
-						<PopoverTrigger asChild></PopoverTrigger>
-					</div>
-				</PopoverAnchor>
-				<PopoverContent className="w-80 ">
-					<div className=" flex flex-col w-full max-w-sm items-center space-x-2 h-full">
-						{/* <Input
-							type="text"
-							ref={eventInputRef}
-							// value={value}
-							// setValue={setValue}
-							placeholder="Input Text Here:"
-						/> */}
-						<div className="flex justify-between items-center pb-10">
-							<h3>Add Title</h3>
-							<PopoverClose className="PopoverClose" aria-label="Close">
-								<X />
-							</PopoverClose>
-						</div>
-						<form className="flex flex-col justify-evenly items-center">
-							<input
-								type="text"
-								// {...register("title", { required: true })}
-								placeholder="post title..."
-								className="input input-bordered w-full max-w-lg my-4"
-							/>
-							<div className="bg-gray-300 border borderblack/50 w-full">
-								<DateTimePicker
-									className={` `}
-									onChange={onStartChange}
-									value={startValue}
-								/>
-							</div>
-							<div className="mb-3">
-								<DateTimePicker
-									className={`light bg-white my-3`}
-									onChange={onEndChange}
-									value={endValue}
-								/>
-							</div>
-
-							<textarea
-								className="textarea textarea-bordered w-full max-w-lg"
-								placeholder="description..."
-							></textarea>
-
-							<select
-								className="select select-bordered w-full max-w-lg my-4"
-								defaultValue={""}
-							>
-								<option disabled value="">
-									select color
-								</option>
-								<option value="">red</option>
-								<option value="">blue</option>
-								<option value="">purple</option>
-							</select>
-							<button
-								onClick={() => handleAction()}
-								type="submit"
-								className="btn btn-primary w-full max-w-lg"
-							></button>
-						</form>
-						{/* <Button
-							onClick={() => handleAction()}
-							type="submit"
-							variant="primary"
-						>
-							Submit
-						</Button> */}
-					</div>
-				</PopoverContent>
-			</Popover>
+			<EventModalForm
+				events={events}
+				setEvents={setEvents}
+				selectInfo={selectInfo}
+			/>
 		</section>
 	);
 };
