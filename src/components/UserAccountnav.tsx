@@ -2,6 +2,7 @@
 
 import { signOut } from "next-auth/react";
 import { Button } from "./ui/button";
+import { Settings } from "lucide-react";
 
 // So the main reason this component exists is bc in order to use the
 // next-auth signOut function, you need to use useSession() instead of
@@ -11,17 +12,17 @@ import { Button } from "./ui/button";
 
 const UserAccountnav = () => {
 	return (
-		<Button
+		<button
+			className="p-1 mb-4 rounded-lg bg-gray-700 hover:bg-[#302384]"
 			onClick={() =>
 				signOut({
 					redirect: true,
 					callbackUrl: `${window.location.origin}/sign-in`,
 				})
 			}
-			variant="destructive"
 		>
 			Sign Out
-		</Button>
+		</button>
 	);
 };
 

@@ -7,6 +7,7 @@ import { links, menus } from "@/lib/links";
 import Paragon from "../../../public/svg/paragon.svg";
 import Quote from "@/components/Quote";
 import UserInfo from "./user-info";
+import UserAccountnav from "../UserAccountnav";
 
 export default function Sidebar() {
 	const [open, setOpen] = useState(false);
@@ -55,7 +56,7 @@ export default function Sidebar() {
 					</button> */}
 				</div>
 
-				<ul className="flex-1  py-8 px-2 border-t border-white/10">
+				<ul className="flex-1 py-8 px-2 border-t border-white/10">
 					{links.map((link, index) => (
 						<li
 							className={`${
@@ -81,29 +82,21 @@ export default function Sidebar() {
 					))}
 				</ul>
 
-				{/* <hr className="my-3" /> */}
+				<hr className="mb-4" />
+
+				<UserAccountnav />
 
 				<Quote open={open} />
 
-				<div className={` border-t border-white/10 flex p-3 pt-4`}>
+				<div className={` border-t border-white/10 flex p-3 pt-4 `}>
 					<div className="border bg-[#333333] ">
 						<div className="w-10 h-10 text-center text-white font-[36px] leading-[100px]"></div>
 					</div>
-					<div
-						className={`flex justify-between items-center
-              				overflow-hidden transition-all p-3 bg-[#333333] 
-							rounded-xl
-						${!open ? "w-0" : "w-52 ml-3"}`}
-					>
-						<UserInfo open={open} />
-						{/* name and email */}
-						{/* <div className={`${!open ? "hidden" : ""} leading-5`}>
-							<h4 className="font-semibold">John Doe</h4>
-							<span className="text-xs text-gray-600">johndoe@gmail.com</span>
-						</div> */}
-						{/* vertical 3 dots icon */}
-						{!open ? "" : <MoreVertical size={20} />}
-					</div>
+					<UserInfo open={open} />
+					{/* <div className={`${!open ? "hidden" : ""} leading-5`}>
+						<h4 className="font-semibold">John Doe</h4>
+						<span className="text-xs text-gray-600">johndoe@gmail.com</span>
+					</div> */}
 				</div>
 			</nav>
 		</aside>
